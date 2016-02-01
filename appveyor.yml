@@ -20,6 +20,8 @@ build:
 after_build:
 - ps: 
 test_script:
+# doesn't appear to be an equivalent of 'copy local' - https://github.com/aspnet/dnx/issues/955
+- copy C:\Users\appveyor\.dnx\packages\NUnit\2.6.4\lib\nunit.framework.dll artifacts\bin\Stateless.Tests\Release\net40\
 - C:\Users\appveyor\.dnx\packages\NUnit.Runners\2.6.4\tools\nunit-console-x86.exe /config:Release artifacts\bin\Stateless.Tests\Release\net40\Stateless.Tests.dll
 deploy:
 - provider: NuGet
